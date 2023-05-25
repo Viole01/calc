@@ -6,10 +6,6 @@ function App() {
 
   const handleChange = e => setValue(e.target.value);
 
-  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  const renderedNumbers = numbers.map(number => <Button>{number}</Button>);
-
   return (
     <div>
       <input
@@ -18,7 +14,21 @@ function App() {
         value={value}
         onChange={handleChange}
       />
-      <div>{renderedNumbers}</div>
+      <div className="flex flex-row">
+        <Button>7</Button>
+        <Button>8</Button>
+        <Button>9</Button>
+      </div>
+      <div className="flex flex-row">
+        <Button>4</Button>
+        <Button>5</Button>
+        <Button>6</Button>
+      </div>
+      <div className="flex flex-row">
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+      </div>
     </div>
   );
 }
