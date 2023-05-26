@@ -1,35 +1,55 @@
 import { useState } from 'react';
+import Calculator from './components/Calculator';
+import Screen from './components/Screen';
+import ButtonBox from './components/ButtonBox';
 import Button from './components/Button';
 
 function App() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(0);
 
-  const handleChange = e => setValue(e.target.value);
+  const btnValues = [
+    ['C', '%', '/'],
+    [7, 8, 9, 'X'],
+    [4, 5, 6, '-'],
+    [1, 2, 3, '+'],
+    [0, '.', '='],
+  ];
+
+  // const renderedBtnValues = btnValues.map(row => {
+  //   const renderedBtns = row.map((num, i) => {
+  //     return (
+  //       <Button
+  //         className={num === '=' ? 'w-24' : ''}
+  //         onClick={num => handleClick(num)}
+  //         key={i}
+  //       >
+  //         {num}
+  //       </Button>
+  //     );
+  //   });
+
+  //   return <div>{renderedBtns}</div>;
+  // });
+
+  const renderedBtnValues = btnValues.map((row, i) => (
+    <div className="flex justify-center" key={i}>
+      {row.map((num, j) => (
+        <div className="flex flex-row" key={j}>
+          <div className={num === 'C' ? 'w-24' : ''}>
+            <Button onClick={num => setValue(num)}>{num}</Button>
+          </div>
+        </div>
+      ))}
+    </div>
+  ));
 
   return (
-    <div>
-      <input
-        className="border border-black bg-black text-white text-right"
-        type="number"
-        value={value}
-        onChange={handleChange}
-      />
-      <div className="flex flex-row">
-        <Button>7</Button>
-        <Button>8</Button>
-        <Button>9</Button>
+    <Calculator>
+      <Screen value={value} />
+      <div>
+        <ButtonBox>{renderedBtnValues}</ButtonBox>
       </div>
-      <div className="flex flex-row">
-        <Button>4</Button>
-        <Button>5</Button>
-        <Button>6</Button>
-      </div>
-      <div className="flex flex-row">
-        <Button>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
-      </div>
-    </div>
+    </Calculator>
   );
 }
 

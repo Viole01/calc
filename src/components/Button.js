@@ -1,9 +1,12 @@
-function Button({ children }) {
+const Button = ({ children, onClick, className }) => {
   return (
-    <div>
-      <button className="p-3 bg-gray-300 border border-gray">{children}</button>
-    </div>
+    <button
+      className={`text-6xl text-gray border border-black rounded cursor-pointer ${className}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
-}
+};
 
 export default Button;
