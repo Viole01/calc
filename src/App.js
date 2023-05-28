@@ -35,14 +35,12 @@ function App() {
     <div className="flex justify-center" key={i}>
       {row.map((num, i) => (
         <div key={i}>
-          <div>
-            <Button
-              className={num === '=' ? 'w-32' : ''}
-              onClick={num => setValue(num)}
-            >
-              {num}
-            </Button>
-          </div>
+          <Button
+            className={num === '=' ? 'w-32' : ''}
+            onClick={e => console.log(e.target.innerText)}
+          >
+            {num}
+          </Button>
         </div>
       ))}
     </div>
