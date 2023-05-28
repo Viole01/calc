@@ -37,7 +37,7 @@ function App() {
         <div key={i}>
           <Button
             className={num === '=' ? 'w-32' : ''}
-            onClick={e => console.log(e.target.innerText)}
+            onClick={e => setValue(e.target.innerText)}
           >
             {num}
           </Button>
