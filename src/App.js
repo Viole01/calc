@@ -8,7 +8,7 @@ function App() {
   const [value, setValue] = useState(0);
 
   const btnValues = [
-    ['C', '%', '/'],
+    ['C', '+-', '%', '/'],
     [7, 8, 9, 'X'],
     [4, 5, 6, '-'],
     [1, 2, 3, '+'],
@@ -33,10 +33,15 @@ function App() {
 
   const renderedBtnValues = btnValues.map((row, i) => (
     <div className="flex justify-center" key={i}>
-      {row.map((num, j) => (
-        <div className="flex flex-row" key={j}>
-          <div className={num === 'C' ? 'w-24' : ''}>
-            <Button onClick={num => setValue(num)}>{num}</Button>
+      {row.map((num, i) => (
+        <div key={i}>
+          <div>
+            <Button
+              className={num === '=' ? 'w-32' : ''}
+              onClick={num => setValue(num)}
+            >
+              {num}
+            </Button>
           </div>
         </div>
       ))}
@@ -46,7 +51,7 @@ function App() {
   return (
     <Calculator>
       <Screen value={value} />
-      <div>
+      <div className="w-full">
         <ButtonBox>{renderedBtnValues}</ButtonBox>
       </div>
     </Calculator>

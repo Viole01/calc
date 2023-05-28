@@ -1,5 +1,9 @@
 const Calculator = ({ children }) => {
-  return <div className="mx-auto border w-6/12 h-screen">{children}</div>;
+  return (
+    <div className="flex justify-center items-center flex-col py-16 w-3/6">
+      {children}
+    </div>
+  );
 };
 
 export default Calculator;
