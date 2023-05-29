@@ -22,7 +22,7 @@ function App() {
           <Button
             className={num === '=' ? 'w-[11rem] bg-[#f33d1d]' : ''}
             onClick={() => {
-              console.log(`${num} clicked!`);
+              setValue(num);
             }}
           >
             {num}
@@ -35,7 +35,7 @@ function App() {
   return (
     <Calculator>
       <Screen value={value} />
-      <div className="w-full">
+      <div className="w-full flex justify-center">
         <ButtonBox>{renderedBtnValues}</ButtonBox>
       </div>
     </Calculator>
