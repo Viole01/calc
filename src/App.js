@@ -20,7 +20,7 @@ function App() {
       {row.map((num, i) => (
         <div key={i}>
           <Button
-            className={num === '=' ? 'w-40 bg-[#f33d1d]' : ''}
+            className={num === '=' ? 'w-[11rem] bg-[#f33d1d]' : ''}
             onClick={() => {
               console.log(`${num} clicked!`);
             }}

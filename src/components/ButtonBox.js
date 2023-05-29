@@ -1,6 +1,6 @@
 function ButtonBox({ children }) {
   return (
-    <div className="w-auto m-2 mt-0 flex justify-center align-center flex-wrap p-4">
+    <div className="m-2 mt-0 p-4 flex justify-center align-center flex-wrap">
       {children}
     </div>
   );
