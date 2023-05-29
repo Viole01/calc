@@ -15,29 +15,15 @@ function App() {
     [0, '.', '='],
   ];
 
-  // const renderedBtnValues = btnValues.map(row => {
-  //   const renderedBtns = row.map((num, i) => {
-  //     return (
-  //       <Button
-  //         className={num === '=' ? 'w-24' : ''}
-  //         onClick={num => handleClick(num)}
-  //         key={i}
-  //       >
-  //         {num}
-  //       </Button>
-  //     );
-  //   });
-
-  //   return <div>{renderedBtns}</div>;
-  // });
-
   const renderedBtnValues = btnValues.map((row, i) => (
     <div className="flex justify-center" key={i}>
       {row.map((num, i) => (
         <div key={i}>
           <Button
-            className={num === '=' ? 'w-32' : ''}
-            onClick={e => setValue(e.target.innerText)}
+            className={num === '=' ? 'w-40 bg-[#f33d1d]' : ''}
+            onClick={() => {
+              console.log(`${num} clicked!`);
+            }}
           >
             {num}
           </Button>

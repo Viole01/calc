@@ -1,6 +1,6 @@
 const Calculator = ({ children }) => {
   return (
-    <div className="flex justify-center items-center flex-col py-16 w-3/6">
+    <div className="flex justify-center border rounded bg-[#485461] border-black items-center flex-col w-2/6">
       {children}
     </div>
   );
