@@ -5,7 +5,8 @@ import ButtonBox from './components/ButtonBox';
 import Button from './components/Button';
 
 function App() {
-  const [value, setValue] = useState(0);
+  const [num, setNum] = useState(0);
+  const [res, setRes] = useState(0);
 
   const btnValues = [
     ['C', '+-', '%', '/'],
@@ -15,26 +16,62 @@ function App() {
     [0, '.', '='],
   ];
 
+  const calculate = btn => {
+    btn === '='
+      ? equalClickHandler(btn)
+      : btn === '+-'
+      ? invertClickHandler(btn)
+      : btn === 'C'
+      ? resetClickHandler(btn)
+      : btn === '%'
+      ? percentClickHandler(btn)
+      : btn === '+' || btn === '-' || btn === 'X' || btn === '/'
+      ? signClickHandler(btn)
+      : btn === '.'
+      ? dotClickHandler(btn)
+      : numClickHander(btn);
+  };
+
+  const numClickHander = e => {
+    const value = e.target.innerHTML;
+
+    if (num === 0) {
+      setNum(value);
+      toString(num);
+    } else {
+      setNum(num + value);
+    }
+  };
+
+  const equalClickHandler = e => {};
+
+  const invertClickHandler = e => {};
+
+  const resetClickHandler = e => {};
+
+  const signClickHandler = e => {};
+
+  const percentClickHandler = e => {};
+
+  const dotClickHandler = e => {};
+
   const renderedBtnValues = btnValues.map((row, i) => (
     <div className="flex justify-center" key={i}>
-      {row.map((num, i) => (
-        <div key={i}>
-          <Button
-            className={num === '=' ? 'w-[11rem] bg-[#f33d1d]' : ''}
-            onClick={() => {
-              setValue(num);
-            }}
-          >
-            {num}
-          </Button>
-        </div>
+      {row.map((btn, i) => (
+        <Button
+          className={btn === '=' ? 'w-[11rem] bg-[#f33d1d]' : ''}
+          onClick={btn => calculate(btn)}
+          key={i}
+        >
+          {btn}
+        </Button>
       ))}
     </div>
   ));
 
   return (
     <Calculator>
-      <Screen value={value} />
+      <Screen value={num} />
       <div className="w-full flex justify-center">
         <ButtonBox>{renderedBtnValues}</ButtonBox>
       </div>
