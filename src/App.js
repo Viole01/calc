@@ -47,13 +47,20 @@ function App() {
 
   const invertClickHandler = e => {};
 
-  const resetClickHandler = e => {};
+  const resetClickHandler = () => {
+    setNum(0);
+    setRes(0);
+  };
 
   const signClickHandler = e => {};
 
   const percentClickHandler = e => {};
 
-  const dotClickHandler = e => {};
+  const dotClickHandler = e => {
+    const value = e.target.innerHTML;
+    toString(num);
+    setNum(num + value);
+  };
 
   const renderedBtnValues = btnValues.map((row, i) => (
     <div className="flex justify-center" key={i}>
